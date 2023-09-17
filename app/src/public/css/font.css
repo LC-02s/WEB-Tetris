@@ -1,0 +1,139 @@
+@charset "utf-8 ";
+
+/* Pretendard */
+
+/*
+Copyright (c) 2021 Kil Hyung-jin, with Reserved Font Name Pretendard.
+https://github.com/orioncactus/pretendard
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is copied below, and is also available with a FAQ at:
+http://scripts.sil.org/OFL
+*/
+
+@font-face {
+  font-family: 'Pretendard';
+  font-weight: 900;
+  font-display: swap;
+  src:
+    local('Pretendard Black'),
+    url('../font/Pretendard/woff2/Pretendard-Black.woff2') format('woff2'),
+    url('../font/Pretendard/woff/Pretendard-Black.woff') format('woff'),
+    url('../font/Pretendard/openType/Pretendard-Black.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  font-weight: 800;
+  font-display: swap;
+  src:
+    local('Pretendard ExtraBold'),
+    url('../font/Pretendard/woff2/Pretendard-ExtraBold.woff2') format('woff2'),
+    url('../font/Pretendard/woff/Pretendard-ExtraBold.woff') format('woff'),
+    url('../font/Pretendard/openType/Pretendard-ExtraBold.otf')
+      format('opentype');
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  font-weight: 700;
+  font-display: swap;
+  src:
+    local('Pretendard Bold'),
+    url('../font/Pretendard/woff2/Pretendard-Bold.woff2') format('woff2'),
+    url('../font/Pretendard/woff/Pretendard-Bold.woff') format('woff'),
+    url('../font/Pretendard/openType/Pretendard-Bold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  font-weight: 600;
+  font-display: swap;
+  src:
+    local('Pretendard SemiBold'),
+    url('../font/Pretendard/woff2/Pretendard-SemiBold.woff2') format('woff2'),
+    url('../font/Pretendard/woff/Pretendard-SemiBold.woff') format('woff'),
+    url('../font/Pretendard/openType/Pretendard-SemiBold.otf')
+      format('opentype');
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  font-weight: 500;
+  font-display: swap;
+  src:
+    local('Pretendard Medium'),
+    url('../font/Pretendard/woff2/Pretendard-Medium.woff2') format('woff2'),
+    url('../font/Pretendard/woff/Pretendard-Medium.woff') format('woff'),
+    url('../font/Pretendard/openType/Pretendard-Medium.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  font-weight: 400;
+  font-display: swap;
+  src:
+    local('Pretendard Regular'),
+    url('../font/Pretendard/woff2/Pretendard-Regular.woff2') format('woff2'),
+    url('../font/Pretendard/woff/Pretendard-Regular.woff') format('woff'),
+    url('../font/Pretendard/openType/Pretendard-Regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  font-weight: 300;
+  font-display: swap;
+  src:
+    local('Pretendard Light'),
+    url('../font/Pretendard/woff2/Pretendard-Light.woff2') format('woff2'),
+    url('../font/Pretendard/woff/Pretendard-Light.woff') format('woff'),
+    url('../font/Pretendard/openType/Pretendard-Light.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  font-weight: 200;
+  font-display: swap;
+  src:
+    local('Pretendard ExtraLight'),
+    url('../font/Pretendard/woff2/Pretendard-ExtraLight.woff2') format('woff2'),
+    url('../font/Pretendard/woff/Pretendard-ExtraLight.woff') format('woff'),
+    url('../font/Pretendard/openType/Pretendard-ExtraLight.otf')
+      format('opentype');
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  font-weight: 100;
+  font-display: swap;
+  src:
+    local('Pretendard Thin'),
+    url('../font/Pretendard/woff2/Pretendard-Thin.woff2') format('woff2'),
+    url('../font/Pretendard/woff/Pretendard-Thin.woff') format('woff'),
+    url('../font/Pretendard/openType/Pretendard-Thin.otf') format('opentype');
+}
+
+/* DOS Font */
+
+/* 
+글꼴(폰트)로 도스샘물체(leedheo 제작)를 사용하였습니다.
+폰트 출처 및 이용 명시 등에 관하여 폰트 원출처는 https://github.com/hurss/fonts 입니다.
+*/
+
+@font-face {
+  font-family: 'DOSIyagiMedium';
+  src:
+    local('DOSIyagiMedium'),
+    url('../font/DOS/DOSIyagiMedium.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DOSMyungjo';
+  src:
+    local('DOSMyungjo'),
+    url('../font/DOS/DOSMyungjo.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
