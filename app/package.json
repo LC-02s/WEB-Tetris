@@ -11,16 +11,12 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "LEE CHAN",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.20.2",
     "ejs": "^3.1.9",
     "express": "^4.18.2"
-  },
-  "repository": {
-    "type": "git",
-    "url": ""
   },
   "devDependencies": {
     "@types/node": "^20.6.2",
@@ -31,5 +27,9 @@
     "eslint-plugin-node": "^11.1.0",
     "nodemon": "^3.0.1",
     "prettier": "^3.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LC-02s/WEB-Tetris"
   }
 }
