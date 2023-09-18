@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const app = express();
 
 // 라우팅
-const index = require('./src/routes');
+const index = require('./src/routes/index');
 
 // 앱 세팅
 app.set('views', './src/views');

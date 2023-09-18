@@ -122,18 +122,22 @@ http://scripts.sil.org/OFL
 
 @font-face {
   font-family: 'DOSIyagiMedium';
-  src:
-    local('DOSIyagiMedium'),
-    url('../font/DOS/DOSIyagiMedium.woff2') format('woff2');
   font-weight: normal;
+  font-display: auto;
+  src:
+    local('DOSIyagiBoldface'),
+    url('../font/DOS/DOSIyagiMedium.woff2') format('woff2'),
+    url('../font/DOS/DOSIyagiBoldface.ttf') format('truetype');
   font-style: normal;
 }
 
 @font-face {
   font-family: 'DOSMyungjo';
+  font-weight: normal;
+  font-display: auto;
   src:
     local('DOSMyungjo'),
-    url('../font/DOS/DOSMyungjo.woff') format('woff');
-  font-weight: normal;
+    url('../font/DOS/DOSMyungjo.woff') format('woff'),
+    url('../font/DOS/DOSMyungjo.ttf') format('truetype');
   font-style: normal;
 }
