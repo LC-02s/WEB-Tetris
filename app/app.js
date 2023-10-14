@@ -1,14 +1,14 @@
-// 모듈
+// Modules
 const express = require('express');
 
 const bodyParser = require('body-parser');
 
 const app = express();
 
-// 라우팅
+// Routes
 const home = require('./src/routes/home');
 
-// 앱 세팅
+// Settings
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
 app.use(express.static(`${__dirname}/src/public`));

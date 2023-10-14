@@ -11,7 +11,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "LEE CHAN",
+  "author": "LC-02s",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.20.2",
