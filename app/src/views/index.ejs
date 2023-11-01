@@ -9,15 +9,42 @@
   </head>
   <body>
     <main>
-      <section id="intro-container" class="default-container">
+      <section id="intro-container" class="default-container" data-disabled="0">
         <div class="intro-wrap">
           <h1 class="intro-wrap__title">WEB-TETRIS</h1>
           <p class="intro-wrap__article">Press To Start Game</p>
         </div>
       </section>
-      <section id="menu-container" class="default-container"></section>
-      <section id="modal-container" class="default-container"></section>
-      <section id="game-container" class="default-container"></section>
+      <section id="menu-container" class="default-container" data-disabled="1">
+        <div class="menu-wrap">
+          <h1 class="menu-wrap__title">WEB-TETRIS</h1>
+          <div class="menu-wrap__menuBox">
+            <h2 class="menu-wrap__menuBoxTitle"><span>Menu</span></h2>
+            <ul>
+              <li class="selected">1P Play (Marathon)</li>
+              <li>2P Play</li>
+              <li>Versus AI</li>
+            </ul>
+            <ul>
+              <li>Settings</li>
+              <li>Language</li>
+            </ul>
+          </div>
+          <p class="menu-wrap__article">
+            Jump right into a game of Marathon with the default settings
+          </p>
+        </div>
+      </section>
+      <section
+        id="modal-container"
+        class="default-container"
+        data-disabled="0"
+      ></section>
+      <section
+        id="game-container"
+        class="default-container"
+        data-disabled="0"
+      ></section>
     </main>
   </body>
 </html>
