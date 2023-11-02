@@ -15,6 +15,7 @@
   --grayscale-800: #333333;
   --grayscale-900: #242424;
   --main-font-family: 'DOSMyungjo';
+  --main-font-weight: normal;
   --sub-font-family: 'Pretendard';
   --font-size-100: 60px;
   --font-size-200: 48px;
@@ -66,9 +67,11 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: inherit;
+  width: auto;
+  height: auto;
   padding: 20px;
+
+  background-color: var(--grayscale-900);
 }
 
 .default-container[data-disabled='0'] {
@@ -102,7 +105,7 @@ main {
 
   font-family: var(--main-font-family);
   font-size: var(--font-size-100);
-  font-weight: normal;
+  font-weight: var(--main-font-weight);
   color: var(--brand-white);
   text-align: center;
   white-space: nowrap;
@@ -110,12 +113,13 @@ main {
 .intro-wrap__comment {
   font-family: var(--main-font-family);
   font-size: var(--font-size-400);
-  font-weight: normal;
+  font-weight: var(--main-font-weight);
   color: var(--grayscale-100);
   text-align: center;
   line-height: var(--article-line-height);
   word-break: keep-all;
-
+}
+.intro-wrap__comment.loaded {
   animation: var(--text-dissolve-animation);
   cursor: pointer;
 }
@@ -141,7 +145,7 @@ main {
 
   font-family: var(--main-font-family);
   font-size: var(--font-size-200);
-  font-weight: normal;
+  font-weight: var(--main-font-weight);
   color: var(--brand-white);
   text-align: center;
   white-space: nowrap;
@@ -176,7 +180,7 @@ main {
 
   font-family: var(--main-font-family);
   font-size: var(--font-size-400);
-  font-weight: normal;
+  font-weight: var(--main-font-weight);
   color: var(--grayscale-300);
   text-align: center;
   word-break: keep-all;
@@ -229,7 +233,7 @@ main {
 
   font-family: var(--main-font-family);
   font-size: var(--font-size-400);
-  font-weight: normal;
+  font-weight: var(--main-font-weight);
   color: var(--grayscale-300);
 
   background-color: var(--grayscale-900);
@@ -241,7 +245,94 @@ main {
 
   font-family: var(--main-font-family);
   font-size: var(--font-size-500);
-  font-weight: normal;
+  font-weight: var(--main-font-weight);
+  color: var(--grayscale-200);
+  text-align: center;
+  line-height: var(--article-line-height);
+  word-break: keep-all;
+}
+
+/* settings */
+.setting-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: var(--common-wrap-width);
+  min-width: var(--common-wrap-width);
+  max-width: var(--common-wrap-width);
+  height: var(--common-wrap-height);
+  padding: 40px;
+
+  border: var(--common-wrap-border);
+}
+
+.setting-wrap__title {
+  display: block;
+  margin: 0px 0px 40px;
+
+  font-family: var(--main-font-family);
+  font-size: var(--font-size-200);
+  font-weight: var(--main-font-weight);
+  color: var(--brand-white);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.setting-wrap__menuBox {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  padding: 12px 0px 0px;
+
+  border: 4px solid var(--grayscale-300);
+}
+
+.setting-wrap__menuBoxTitle {
+  position: absolute;
+  z-index: 4;
+  top: -18px;
+  left: 0px;
+  right: 0px;
+
+  display: block;
+
+  text-align: center;
+}
+.setting-wrap__menuBoxTitle span {
+  padding: 4px 18px;
+
+  font-family: var(--main-font-family);
+  font-size: var(--font-size-400);
+  font-weight: var(--main-font-weight);
+  color: var(--grayscale-300);
+
+  background-color: var(--grayscale-900);
+}
+
+.setting-wrap__menuBoxFrame {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  max-height: 100%;
+
+  overflow-y: auto;
+}
+
+.setting-wrap__article {
+  display: block;
+  margin: 40px 0px;
+
+  font-family: var(--main-font-family);
+  font-size: var(--font-size-500);
+  font-weight: var(--main-font-weight);
   color: var(--grayscale-200);
   text-align: center;
   line-height: var(--article-line-height);
