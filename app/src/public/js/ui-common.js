@@ -61,11 +61,25 @@ const assetList = preloadAsset(preloadAssetArr);
 
 console.log(assetList);
 
+const introContainer = document.getElementById('intro-container');
+const progressState = document.getElementById('preload-progress');
+const menuContainer = document.getElementById('menu-container');
+const settingContainer = document.getElementById('setting-container');
+const gameContainer = document.getElementById('game-container');
+
 function commonUiEvent(index, event) {
-  const introContainer = document.getElementById('intro-container');
-  const progressState = document.getElementById('preload-progress');
-  const menuContainer = document.getElementById('menu-container');
   const menuList = document.querySelectorAll('.menu-wrap__menuBox ul li');
+  let selectedIndex = 0;
+
+  function changeMenuArticle() {
+    const selectedMenu = document.querySelector(
+      '.menu-wrap__menuBox ul li.selected',
+    );
+    const { menuArticle } = selectedMenu.dataset;
+    const menuArticleEl = document.querySelector('.menu-wrap__article');
+
+    menuArticleEl.innerText = menuArticle;
+  }
 
   switch (Number(index)) {
     case 0:
@@ -75,20 +89,45 @@ function commonUiEvent(index, event) {
       }
       break;
     case 1:
-      console.log(menuList, event.keyCode);
+      for (let i = 0; i < menuList.length; i += 1) {
+        if (menuList[i].classList.contains('selected')) {
+          selectedIndex = i;
+        }
+      }
       if (event.keyCode === 13) {
         // enter
+        const selectedItem = document.querySelector(
+          '.menu-wrap__menuBox ul li.selected button',
+        );
+        console.log(selectedItem.id, selectedIndex);
+        selectedItem.click();
       } else if (event.keyCode === 38) {
         // ArrowUp
+        if (selectedIndex !== 0) {
+          menuList[selectedIndex].classList.remove('selected');
+          menuList[selectedIndex - 1].classList.add('selected');
+          changeMenuArticle();
+        }
       } else if (event.keyCode === 40) {
         // ArrowDown
+        if (selectedIndex !== menuList.length - 1) {
+          menuList[selectedIndex].classList.remove('selected');
+          menuList[selectedIndex + 1].classList.add('selected');
+          changeMenuArticle();
+        }
       }
       break;
     case 2:
-      console.log(index, event);
+      if (event.keyCode === 8) {
+        settingContainer.dataset.disabled = 0;
+        menuContainer.dataset.disabled = 1;
+      }
       break;
     case 3:
-      console.log(index, event);
+      if (event.keyCode === 8) {
+        gameContainer.dataset.disabled = 0;
+        menuContainer.dataset.disabled = 1;
+      }
       break;
     default:
       console.log(index, event);
@@ -101,4 +140,22 @@ document.addEventListener('keydown', (e) => {
   const { containerIndex } = activeContainer.dataset;
 
   commonUiEvent(containerIndex, e);
+});
+
+// menu button event
+const settingPageBtn = document.getElementById('settingPageBtn');
+const marathonModeBtn = document.getElementById('marathonModeBtn');
+const vsAiModeBtn = document.getElementById('vsAiModeBtn');
+
+settingPageBtn.addEventListener('click', () => {
+  menuContainer.dataset.disabled = 0;
+  settingContainer.dataset.disabled = 1;
+});
+marathonModeBtn.addEventListener('click', () => {
+  menuContainer.dataset.disabled = 0;
+  gameContainer.dataset.disabled = 1;
+});
+vsAiModeBtn.addEventListener('click', () => {
+  menuContainer.dataset.disabled = 0;
+  gameContainer.dataset.disabled = 1;
 });

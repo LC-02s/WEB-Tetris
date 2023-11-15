@@ -129,7 +129,7 @@ main {
 .menu-wrap {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   width: var(--common-wrap-width);
   min-width: var(--common-wrap-width);
@@ -216,6 +216,15 @@ main {
   border-top: 8px solid transparent;
   border-bottom: 8px solid transparent;
   border-left: 12px solid var(--brand-white);
+}
+.menu-wrap__menuBox ul li button {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+
+  border: none;
+  background-color: transparent;
 }
 
 .menu-wrap__menuBoxTitle {
