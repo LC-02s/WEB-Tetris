@@ -61,34 +61,75 @@ const assetList = preloadAsset(preloadAssetArr);
 
 console.log(assetList);
 
+// sound asset (temp)
+const uiMenuSoundAsset = new Audio('../sound/asset/ui_menu_navigate.wav');
+const uiEnterSoundAsset = new Audio('../sound/asset/ui_enter.wav');
+const uiBackspaceSoundAsset = new Audio('../sound/asset/ui_backspace.wav');
+
+function playSoundEffect(soundType) {
+  switch (soundType) {
+    case 0:
+      uiMenuSoundAsset.currentTime = 0;
+      uiMenuSoundAsset.play();
+      break;
+    case 1:
+      uiEnterSoundAsset.currentTime = 0;
+      uiEnterSoundAsset.play();
+      break;
+    case 2:
+      uiBackspaceSoundAsset.currentTime = 0;
+      uiBackspaceSoundAsset.play();
+      break;
+    default:
+      console.log(soundType);
+      break;
+  }
+}
+
 const introContainer = document.getElementById('intro-container');
 const progressState = document.getElementById('preload-progress');
 const menuContainer = document.getElementById('menu-container');
+const menuList = document.querySelectorAll('.menu-wrap__menuBox ul li');
 const settingContainer = document.getElementById('setting-container');
+const settingList = document.querySelectorAll(
+  '.setting-wrap__menuBoxFrame ul li',
+);
 const gameContainer = document.getElementById('game-container');
 
 function commonUiEvent(index, event) {
-  const menuList = document.querySelectorAll('.menu-wrap__menuBox ul li');
   let selectedIndex = 0;
 
-  function changeMenuArticle() {
-    const selectedMenu = document.querySelector(
-      '.menu-wrap__menuBox ul li.selected',
-    );
-    const { menuArticle } = selectedMenu.dataset;
-    const menuArticleEl = document.querySelector('.menu-wrap__article');
+  function changeArticle(containerIndex) {
+    if (containerIndex === 0) {
+      const selectedMenu = document.querySelector(
+        '.menu-wrap__menuBox ul li.selected',
+      );
+      const { menuArticle } = selectedMenu.dataset;
+      const menuArticleEl = document.querySelector('.menu-wrap__article');
 
-    menuArticleEl.innerText = menuArticle;
+      menuArticleEl.innerText = menuArticle;
+    } else {
+      const selectedMenu = document.querySelector(
+        '.setting-wrap__menuBoxFrame ul li.selected',
+      );
+      const { settingArticle } = selectedMenu.dataset;
+      const settingArticleEl = document.querySelector('.setting-wrap__article');
+
+      settingArticleEl.innerText = settingArticle;
+    }
   }
 
   switch (Number(index)) {
     case 0:
+      // intro container
       if (progressState.classList.contains('loaded') && event.keyCode === 13) {
         introContainer.dataset.disabled = 0;
         menuContainer.dataset.disabled = 1;
+        playSoundEffect(1);
       }
       break;
     case 1:
+      // menu container
       for (let i = 0; i < menuList.length; i += 1) {
         if (menuList[i].classList.contains('selected')) {
           selectedIndex = i;
@@ -101,32 +142,77 @@ function commonUiEvent(index, event) {
         );
         console.log(selectedItem.id, selectedIndex);
         selectedItem.click();
+        playSoundEffect(1);
       } else if (event.keyCode === 38) {
         // ArrowUp
+        playSoundEffect(0);
         if (selectedIndex !== 0) {
           menuList[selectedIndex].classList.remove('selected');
           menuList[selectedIndex - 1].classList.add('selected');
-          changeMenuArticle();
+          changeArticle(0);
         }
       } else if (event.keyCode === 40) {
         // ArrowDown
+        playSoundEffect(0);
         if (selectedIndex !== menuList.length - 1) {
           menuList[selectedIndex].classList.remove('selected');
           menuList[selectedIndex + 1].classList.add('selected');
-          changeMenuArticle();
+          changeArticle(0);
         }
       }
       break;
     case 2:
+      // setting container
+      for (let i = 0; i < settingList.length; i += 1) {
+        if (settingList[i].classList.contains('selected')) {
+          selectedIndex = i;
+        }
+      }
+      console.log(selectedIndex, event);
       if (event.keyCode === 8) {
         settingContainer.dataset.disabled = 0;
         menuContainer.dataset.disabled = 1;
+        playSoundEffect(2);
+      } else if (event.keyCode === 13) {
+        // enter
+        const selectedItem = document.querySelector(
+          '.setting-wrap__menuBoxFrame ul li.selected button',
+        );
+        console.log(selectedItem.id, selectedIndex);
+        selectedItem.click();
+        playSoundEffect(1);
+      } else if (event.keyCode === 38) {
+        // ArrowUp
+        playSoundEffect(0);
+        if (selectedIndex !== 0) {
+          settingList[selectedIndex].classList.remove('selected');
+          settingList[selectedIndex - 1].classList.add('selected');
+          settingList[selectedIndex - 1].scrollIntoView({
+            behavior: 'smooth',
+            block: 'center',
+          });
+          changeArticle(1);
+        }
+      } else if (event.keyCode === 40) {
+        // ArrowDown
+        playSoundEffect(0);
+        if (selectedIndex !== settingList.length - 1) {
+          settingList[selectedIndex].classList.remove('selected');
+          settingList[selectedIndex + 1].classList.add('selected');
+          settingList[selectedIndex + 1].scrollIntoView({
+            behavior: 'smooth',
+            block: 'center',
+          });
+          changeArticle(1);
+        }
       }
       break;
     case 3:
+      // game container
       if (event.keyCode === 8) {
         gameContainer.dataset.disabled = 0;
         menuContainer.dataset.disabled = 1;
+        playSoundEffect(2);
       }
       break;
     default:

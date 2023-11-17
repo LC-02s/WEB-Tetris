@@ -266,7 +266,7 @@ main {
 .setting-wrap {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   width: var(--common-wrap-width);
   min-width: var(--common-wrap-width);
@@ -279,7 +279,7 @@ main {
 
 .setting-wrap__title {
   display: block;
-  margin: 0px 0px 24px;
+  margin: 0px 0px 32px;
 
   font-family: var(--main-font-family);
   font-size: var(--font-size-300);
@@ -408,7 +408,7 @@ main {
 
 .setting-wrap__article {
   display: block;
-  margin: 20px 0px 40px;
+  margin: 40px 0px 20px;
 
   font-family: var(--main-font-family);
   font-size: var(--font-size-500);
