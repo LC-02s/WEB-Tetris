@@ -1,21 +1,23 @@
-'use-strict';
+/* eslint-disable node/no-unsupported-features/es-syntax */
 
 // intro
 const preloadAssetArr = [
-  '../img/asset/asset_block_blue.svg',
-  '../img/asset/asset_block_cyan.svg',
   '../img/asset/asset_block_gray.svg',
-  '../img/asset/asset_block_green.svg',
-  '../img/asset/asset_block_orange.svg',
-  '../img/asset/asset_block_purple.svg',
   '../img/asset/asset_block_red.svg',
-  '../img/asset/asset_preview_blue.svg',
-  '../img/asset/asset_preview_cyan.svg',
+  '../img/asset/asset_block_orange.svg',
+  '../img/asset/asset_block_yellow.svg',
+  '../img/asset/asset_block_green.svg',
+  '../img/asset/asset_block_cyan.svg',
+  '../img/asset/asset_block_blue.svg',
+  '../img/asset/asset_block_purple.svg',
   '../img/asset/asset_preview_gray.svg',
-  '../img/asset/asset_preview_green.svg',
-  '../img/asset/asset_preview_orange.svg',
-  '../img/asset/asset_preview_purple.svg',
   '../img/asset/asset_preview_red.svg',
+  '../img/asset/asset_preview_orange.svg',
+  '../img/asset/asset_preview_yellow.svg',
+  '../img/asset/asset_preview_green.svg',
+  '../img/asset/asset_preview_cyan.svg',
+  '../img/asset/asset_preview_blue.svg',
+  '../img/asset/asset_preview_purple.svg',
 ];
 
 function preloadAsset(assetArr) {
@@ -59,7 +61,7 @@ function preloadAsset(assetArr) {
 
 const assetList = preloadAsset(preloadAssetArr);
 
-console.log(assetList);
+// console.log(assetList);
 
 // sound asset (temp)
 const uiMenuSoundAsset = new Audio('../sound/asset/ui_menu_navigate.wav');
@@ -188,7 +190,7 @@ function commonUiEvent(index, event) {
           settingList[selectedIndex].classList.remove('selected');
           settingList[selectedIndex - 1].classList.add('selected');
           settingList[selectedIndex - 1].scrollIntoView({
-            behavior: 'smooth',
+            behavior: 'instant',
             block: 'center',
           });
           changeArticle(1);
@@ -200,7 +202,7 @@ function commonUiEvent(index, event) {
           settingList[selectedIndex].classList.remove('selected');
           settingList[selectedIndex + 1].classList.add('selected');
           settingList[selectedIndex + 1].scrollIntoView({
-            behavior: 'smooth',
+            behavior: 'instant',
             block: 'center',
           });
           changeArticle(1);
@@ -242,6 +244,10 @@ marathonModeBtn.addEventListener('click', () => {
   gameContainer.dataset.disabled = 1;
 });
 vsAiModeBtn.addEventListener('click', () => {
-  menuContainer.dataset.disabled = 0;
-  gameContainer.dataset.disabled = 1;
+  // menuContainer.dataset.disabled = 0;
+  // gameContainer.dataset.disabled = 1;
 });
+
+export default {
+  assetList
+}
