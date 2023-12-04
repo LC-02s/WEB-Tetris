@@ -30,9 +30,8 @@ function preloadAsset(assetArr) {
   function updateProgressBar(index, state) {
     const progress = Math.floor((countProgressNum / totalProgressNum) * 100);
     const progressCipher = String(progress).padStart(2, '0');
-
-    if (state) {
-      setTimeout(() => {
+    setTimeout(() => {
+      if (state) {
         if (loadComplete) {
           // complete
           progressEl.innerText = 'Press To Start Game';
@@ -44,14 +43,12 @@ function preloadAsset(assetArr) {
           progressEl.classList.add('error');
           console.log('Image not loaded');
         }
-      }, 30 * index);
-    } else {
-      setTimeout(() => {
+      } else {
         // progress
         progressEl.innerText = `Loading... ${progressCipher}%`;
         console.log(`${progressCipher}%`);
-      }, 30 * index);
-    }
+      }
+    }, 50 * index);
   }
 
   for (let i = 0; i < totalProgressNum; i += 1) {
