@@ -1,16 +1,14 @@
 /* eslint-disable import/extensions */
 /* eslint-disable node/no-unsupported-features/es-syntax */
 
-import playSoundEffect from "./ui_sound.js";
+import playSoundEffect from './ui_sound.js';
 
 const introContainer = document.getElementById('intro-container');
 const progressState = document.getElementById('preload-progress');
 const menuContainer = document.getElementById('menu-container');
 const menuList = document.querySelectorAll('.menu-wrap__menuBox ul li');
 const settingContainer = document.getElementById('setting-container');
-const settingList = document.querySelectorAll(
-  '.setting-wrap__menuBoxFrame ul li',
-);
+const settingList = document.querySelectorAll('.setting-wrap__menuBoxFrame ul li');
 const gameContainer = document.getElementById('game-container');
 
 function commonUiEvent(index, event) {
@@ -18,17 +16,13 @@ function commonUiEvent(index, event) {
 
   function changeArticle(containerIndex) {
     if (containerIndex === 0) {
-      const selectedMenu = document.querySelector(
-        '.menu-wrap__menuBox ul li.selected',
-      );
+      const selectedMenu = document.querySelector('.menu-wrap__menuBox ul li.selected');
       const { menuArticle } = selectedMenu.dataset;
       const menuArticleEl = document.querySelector('.menu-wrap__article');
 
       menuArticleEl.innerText = menuArticle;
     } else {
-      const selectedMenu = document.querySelector(
-        '.setting-wrap__menuBoxFrame ul li.selected',
-      );
+      const selectedMenu = document.querySelector('.setting-wrap__menuBoxFrame ul li.selected');
       const { settingArticle } = selectedMenu.dataset;
       const settingArticleEl = document.querySelector('.setting-wrap__article');
 
@@ -54,9 +48,7 @@ function commonUiEvent(index, event) {
       }
       if (event.keyCode === 13) {
         // enter
-        const selectedItem = document.querySelector(
-          '.menu-wrap__menuBox ul li.selected button',
-        );
+        const selectedItem = document.querySelector('.menu-wrap__menuBox ul li.selected button');
         console.log(selectedItem.id, selectedIndex);
         selectedItem.click();
         playSoundEffect(1);
@@ -92,9 +84,7 @@ function commonUiEvent(index, event) {
         playSoundEffect(2);
       } else if (event.keyCode === 13) {
         // enter
-        const selectedItem = document.querySelector(
-          '.setting-wrap__menuBoxFrame ul li.selected button',
-        );
+        const selectedItem = document.querySelector('.setting-wrap__menuBoxFrame ul li.selected button');
         console.log(selectedItem.id, selectedIndex);
         selectedItem.click();
         playSoundEffect(1);
