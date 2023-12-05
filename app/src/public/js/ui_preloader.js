@@ -10,14 +10,14 @@ const preloadAssetArr = [
   '../img/asset/asset_block_blue.svg',
   '../img/asset/asset_block_purple.svg',
   '../img/asset/asset_block_gray.svg',
-  '../img/asset/asset_preview_red.svg',
-  '../img/asset/asset_preview_orange.svg',
-  '../img/asset/asset_preview_yellow.svg',
-  '../img/asset/asset_preview_green.svg',
-  '../img/asset/asset_preview_cyan.svg',
-  '../img/asset/asset_preview_blue.svg',
-  '../img/asset/asset_preview_purple.svg',
-  '../img/asset/asset_preview_gray.svg',
+  '../img/asset/asset_ghost_red.svg',
+  '../img/asset/asset_ghost_orange.svg',
+  '../img/asset/asset_ghost_yellow.svg',
+  '../img/asset/asset_ghost_green.svg',
+  '../img/asset/asset_ghost_cyan.svg',
+  '../img/asset/asset_ghost_blue.svg',
+  '../img/asset/asset_ghost_purple.svg',
+  '../img/asset/asset_ghost_gray.svg',
 ];
 
 function preloadAsset(assetArr) {
