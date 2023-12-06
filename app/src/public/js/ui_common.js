@@ -2,7 +2,7 @@
 /* eslint-disable node/no-unsupported-features/es-syntax */
 
 import playSoundEffect from './ui_sound.js';
-import { defaultSetting } from './game/variables.js';
+import { saveSetting, printSetting } from './ui_setting.js';
 
 const introContainer = document.getElementById('intro-container');
 const progressState = document.getElementById('preload-progress');
@@ -11,10 +11,6 @@ const menuList = document.querySelectorAll('.menu-wrap__menuBox ul li');
 const settingContainer = document.getElementById('setting-container');
 const settingList = document.querySelectorAll('.setting-wrap__menuBoxFrame ul li');
 const gameContainer = document.getElementById('game-container');
-
-function saveSetting() {
-  console.log(defaultSetting);
-}
 
 function commonUiEvent(index, event) {
   let selectedIndex = 0;
@@ -161,7 +157,7 @@ const vsAiModeBtn = document.getElementById('vsAiModeBtn');
 const adjustBtns = document.querySelectorAll('.setting-wrap__menuBoxBtn--adjust > button');
 
 settingPageBtn.addEventListener('click', () => {
-  // setting update function
+  printSetting();
   menuContainer.dataset.disabled = 0;
   settingContainer.dataset.disabled = 1;
 });
@@ -195,6 +191,6 @@ adjustBtns.forEach((btn, index) => {
       textEl.textContent = `${Number(settingValue) + adjustUnit + settingUnit}`;
     }
 
-    saveSetting();
+    saveSetting(1);
   });
 });

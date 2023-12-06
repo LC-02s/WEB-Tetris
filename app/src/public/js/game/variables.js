@@ -170,17 +170,4 @@ export const scoreTable = {
   combo: 50,
 };
 
-export const defaultSetting = {
-  moveRight: ['ArrowRight', "'"],
-  moveLeft: ['ArrowLeft', 'l'],
-  rotateRight: ['ArrowUp', 'p'],
-  rotateLeft: ['z'],
-  softDrop: ['ArrowDown', ';'],
-  hardDrop: ['Space'],
-  hold: ['c'],
-  effectVolume: 100,
-  DAS: 170,
-  ARR: 30,
-};
-
 console.log(shapes, assetList);
