@@ -4,14 +4,12 @@
 import assetList from '../ui_preloader.js';
 import Tetromino from './tetromino.js';
 
-const blockSize = 36;
-const gameSpeed = 5;
-const canvas = document.getElementById('marathon-mode');
+const canvas = document.getElementById('game-field');
 const ctx = canvas.getContext('2d');
-const squareCountX = canvas.width / blockSize;
-const squareCountY = canvas.height / blockSize;
+const squareSizeX = canvas.width / 10;
+const squareSizeY = canvas.height / 20;
 
-const shapes = [
+export const shapes = [
   new Tetromino('Z', assetList[0], assetList[8], [
     [
       [0, 0, 0, 0],
@@ -142,5 +140,40 @@ const shapes = [
   ]),
 ];
 
+export const scoreTable = {
+  erase1: 100,
+  erase2: 300,
+  erase3: 500,
+  erase4: 800,
+  tspin0: 400,
+  tspin1: 700, // These add to the regular erase points
+  tspin2: 900,
+  tspin3: 1100,
+  tspin4: 1200,
+  tmini: 100,
+  softDrop: 1,
+  hardDrop: 2,
+  updateSoftDropImmediately: true,
+  hasSpins: true,
+  hasCombo: true,
+  levelAdditive: 0,
+  levelMultiplied: [
+    'erase1',
+    'erase2',
+    'erase3',
+    'erase4',
+    'tspin0',
+    'tspin1',
+    'tspin2',
+    'tspin3',
+    'tspin4',
+    'tmini',
+    'combo',
+  ],
+  b2bMultiplier: 1.5,
+  b2bMultiplied: ['erase1', 'erase2', 'erase3', 'erase4', 'tspin1', 'tspin2', 'tspin3', 'tspin4', 'tmini'],
+  combo: 50,
+};
+
 console.log(shapes, assetList);
-console.log(ctx, gameSpeed, squareCountX, squareCountY);
+console.log(ctx, squareSizeX, squareSizeY, scoreTable);
