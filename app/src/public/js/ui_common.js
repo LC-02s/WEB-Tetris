@@ -2,6 +2,7 @@
 /* eslint-disable node/no-unsupported-features/es-syntax */
 
 import playSoundEffect from './ui_sound.js';
+import { defaultSetting } from './game/variables.js';
 
 const introContainer = document.getElementById('intro-container');
 const progressState = document.getElementById('preload-progress');
@@ -10,6 +11,10 @@ const menuList = document.querySelectorAll('.menu-wrap__menuBox ul li');
 const settingContainer = document.getElementById('setting-container');
 const settingList = document.querySelectorAll('.setting-wrap__menuBoxFrame ul li');
 const gameContainer = document.getElementById('game-container');
+
+function saveSetting() {
+  console.log(defaultSetting);
+}
 
 function commonUiEvent(index, event) {
   let selectedIndex = 0;
@@ -42,9 +47,7 @@ function commonUiEvent(index, event) {
     case 1:
       // menu container
       for (let i = 0; i < menuList.length; i += 1) {
-        if (menuList[i].classList.contains('selected')) {
-          selectedIndex = i;
-        }
+        if (menuList[i].classList.contains('selected')) selectedIndex = i;
       }
       if (event.keyCode === 13) {
         // enter
@@ -73,9 +76,7 @@ function commonUiEvent(index, event) {
     case 2:
       // setting container
       for (let i = 0; i < settingList.length; i += 1) {
-        if (settingList[i].classList.contains('selected')) {
-          selectedIndex = i;
-        }
+        if (settingList[i].classList.contains('selected')) selectedIndex = i;
       }
       console.log(selectedIndex, event);
       if (event.keyCode === 8) {
@@ -88,6 +89,15 @@ function commonUiEvent(index, event) {
         console.log(selectedItem.id, selectedIndex);
         selectedItem.click();
         playSoundEffect(1);
+      } else if (event.keyCode === 37) {
+        // ArrowLeft
+        const selectedItem = document.querySelector(
+          '.setting-wrap__menuBoxFrame ul li.selected .setting-wrap__menuBoxBtn--adjust > button:first-of-type',
+        );
+        if (selectedItem) {
+          selectedItem.click();
+          playSoundEffect(3);
+        }
       } else if (event.keyCode === 38) {
         // ArrowUp
         playSoundEffect(0);
@@ -99,6 +109,15 @@ function commonUiEvent(index, event) {
             block: 'center',
           });
           changeArticle(1);
+        }
+      } else if (event.keyCode === 39) {
+        // ArrowRight
+        const selectedItem = document.querySelector(
+          '.setting-wrap__menuBoxFrame ul li.selected .setting-wrap__menuBoxBtn--adjust > button:last-of-type',
+        );
+        if (selectedItem) {
+          selectedItem.click();
+          playSoundEffect(3);
         }
       } else if (event.keyCode === 40) {
         // ArrowDown
@@ -139,8 +158,10 @@ document.addEventListener('keydown', (e) => {
 const settingPageBtn = document.getElementById('settingPageBtn');
 const marathonModeBtn = document.getElementById('marathonModeBtn');
 const vsAiModeBtn = document.getElementById('vsAiModeBtn');
+const adjustBtns = document.querySelectorAll('.setting-wrap__menuBoxBtn--adjust > button');
 
 settingPageBtn.addEventListener('click', () => {
+  // setting update function
   menuContainer.dataset.disabled = 0;
   settingContainer.dataset.disabled = 1;
 });
@@ -151,4 +172,29 @@ marathonModeBtn.addEventListener('click', () => {
 vsAiModeBtn.addEventListener('click', () => {
   // menuContainer.dataset.disabled = 0;
   // gameContainer.dataset.disabled = 1;
+});
+
+adjustBtns.forEach((btn, index) => {
+  const target = btn.parentNode;
+  const textEl = target.querySelector('span');
+  const adjustUnit = 5;
+
+  // eslint-disable-next-line consistent-return
+  btn.addEventListener('click', () => {
+    const { settingValue, settingUnit, settingMin, settingMax } = target.dataset;
+
+    if (index % 2 === 0) {
+      // even (-)
+      if (Number(settingValue) <= Number(settingMin)) return false;
+      target.dataset.settingValue = Number(settingValue) - adjustUnit;
+      textEl.textContent = `${Number(settingValue) - adjustUnit + settingUnit}`;
+    } else {
+      // odd (+)
+      if (Number(settingValue) >= Number(settingMax)) return false;
+      target.dataset.settingValue = Number(settingValue) + adjustUnit;
+      textEl.textContent = `${Number(settingValue) + adjustUnit + settingUnit}`;
+    }
+
+    saveSetting();
+  });
 });

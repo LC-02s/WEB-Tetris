@@ -4,11 +4,6 @@
 import assetList from '../ui_preloader.js';
 import Tetromino from './tetromino.js';
 
-const canvas = document.getElementById('game-field');
-const ctx = canvas.getContext('2d');
-const squareSizeX = canvas.width / 10;
-const squareSizeY = canvas.height / 20;
-
 export const shapes = [
   new Tetromino('Z', assetList[0], assetList[8], [
     [
@@ -175,5 +170,17 @@ export const scoreTable = {
   combo: 50,
 };
 
+export const defaultSetting = {
+  moveRight: ['ArrowRight', "'"],
+  moveLeft: ['ArrowLeft', 'l'],
+  rotateRight: ['ArrowUp', 'p'],
+  rotateLeft: ['z'],
+  softDrop: ['ArrowDown', ';'],
+  hardDrop: ['Space'],
+  hold: ['c'],
+  effectVolume: 100,
+  DAS: 170,
+  ARR: 30,
+};
+
 console.log(shapes, assetList);
-console.log(ctx, squareSizeX, squareSizeY, scoreTable);
