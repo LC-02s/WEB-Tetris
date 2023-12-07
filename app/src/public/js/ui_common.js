@@ -35,6 +35,7 @@ function commonUiEvent(index, event) {
     case 0:
       // intro container
       if (progressState.classList.contains('loaded') && event.keyCode === 13) {
+        // enter
         introContainer.dataset.disabled = 0;
         menuContainer.dataset.disabled = 1;
         playSoundEffect(1);
@@ -48,7 +49,6 @@ function commonUiEvent(index, event) {
       if (event.keyCode === 13) {
         // enter
         const selectedItem = document.querySelector('.menu-wrap__menuBox ul li.selected button');
-        console.log(selectedItem.id, selectedIndex);
         selectedItem.click();
         playSoundEffect(1);
       } else if (event.keyCode === 38) {
@@ -74,8 +74,8 @@ function commonUiEvent(index, event) {
       for (let i = 0; i < settingList.length; i += 1) {
         if (settingList[i].classList.contains('selected')) selectedIndex = i;
       }
-      console.log(selectedIndex, event);
       if (event.keyCode === 8) {
+        // backspace
         settingContainer.dataset.disabled = 0;
         menuContainer.dataset.disabled = 1;
         playSoundEffect(2);
@@ -132,6 +132,7 @@ function commonUiEvent(index, event) {
     case 3:
       // game container
       if (event.keyCode === 8) {
+        // backspace
         gameContainer.dataset.disabled = 0;
         menuContainer.dataset.disabled = 1;
         playSoundEffect(2);

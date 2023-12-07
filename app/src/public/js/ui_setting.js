@@ -29,7 +29,6 @@ export function saveSetting(state) {
 
   // eslint-disable-next-line no-restricted-syntax
   for (const [key, value] of Object.entries(defaultSetting)) {
-    console.log(`${key}: ${value}`);
     if (key === 'controls') {
       window.localStorage.setItem(key, JSON.stringify(value));
     } else {
