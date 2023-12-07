@@ -9,8 +9,40 @@ const ctx = canvas.getContext('2d');
 const squareSizeX = canvas.width / 10;
 const squareSizeY = canvas.height / 20;
 
-console.log(ctx, squareSizeX, squareSizeY);
+const exampleArr = [
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 4, 0, 0, 0, 0, 0],
+  [6, 0, 1, 1, 4, 4, 0, 0, 0, 0],
+  [6, 6, 6, 1, 1, 4, 2, 3, 3, 0],
+  [5, 5, 5, 5, 2, 2, 2, 3, 3, 0],
+];
 
-console.log(getRandomNum(shapes.length));
-console.log(getRandomNum(shapes.length));
-console.log(getRandomNum(shapes.length));
+setTimeout(() => {
+  for (let i = 0; i < exampleArr.length; i += 1) {
+    for (let j = 0; j < exampleArr[i].length; j += 1) {
+      const blockType = exampleArr[i][j];
+      if (blockType) {
+        ctx.drawImage(shapes[blockType - 1].blockImg, j * squareSizeX, i * squareSizeY, squareSizeX, squareSizeY);
+      }
+    }
+  }
+}, 2000);
+
+console.log(exampleArr);
+
+console.log(getRandomNum(shapes.length), getRandomNum(shapes.length), getRandomNum(shapes.length));

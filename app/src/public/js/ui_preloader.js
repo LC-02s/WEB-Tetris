@@ -58,11 +58,7 @@ function preloadAsset(assetArr) {
     setAsset[i].src = assetArr[i];
 
     countProgressNum += 1;
-    if (countProgressNum === totalProgressNum) {
-      updateProgressBar(i, 1);
-    } else {
-      updateProgressBar(i, 0);
-    }
+    updateProgressBar(i, countProgressNum === totalProgressNum ? 1 : 0);
 
     /* eslint-disable-next-line */
     setAsset[i].onerror = () => {
