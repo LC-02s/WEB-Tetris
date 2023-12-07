@@ -82,6 +82,9 @@ function commonUiEvent(index, event) {
       } else if (event.keyCode === 13) {
         // enter
         const selectedItem = document.querySelector('.setting-wrap__menuBoxFrame ul li.selected button');
+        if (selectedItem.parentNode.classList.contains('setting-wrap__menuBoxBtn--adjust')) {
+          return;
+        }
         console.log(selectedItem.id, selectedIndex);
         selectedItem.click();
         playSoundEffect(1);
