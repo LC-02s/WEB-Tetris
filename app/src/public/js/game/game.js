@@ -37,7 +37,12 @@ setTimeout(() => {
     for (let j = 0; j < exampleArr[i].length; j += 1) {
       const blockType = exampleArr[i][j];
       if (blockType) {
+        // drawImage(img, canvasX, canvasY, imgScaleX, imgScaleY)
         ctx.drawImage(shapes[blockType - 1].blockImg, j * squareSizeX, i * squareSizeY, squareSizeX, squareSizeY);
+      } else {
+        // fill grid
+        ctx.strokeStyle = '#414141';
+        ctx.strokeRect(j * squareSizeX, i * squareSizeY, squareSizeX, squareSizeY);
       }
     }
   }
