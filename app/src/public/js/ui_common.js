@@ -166,10 +166,12 @@ settingPageBtn.addEventListener('click', () => {
   settingContainer.dataset.disabled = 1;
 });
 marathonModeBtn.addEventListener('click', () => {
+  // game start function
   menuContainer.dataset.disabled = 0;
   gameContainer.dataset.disabled = 1;
 });
 vsAiModeBtn.addEventListener('click', () => {
+  // game start function
   // menuContainer.dataset.disabled = 0;
   // gameContainer.dataset.disabled = 1;
 });
